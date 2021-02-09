@@ -12,7 +12,7 @@ var app = express();
 
 // 设置 Mongoose 连接
 const mongoose = require('mongoose');
-const mongoDB = 'mongodb+srv://admin:admin@cluster0.3nfku.mongodb.net/test';
+const mongoDB = process.env.MONGODB_URI || 'mongodb+srv://admin:admin@cluster0.3nfku.mongodb.net/test';
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
